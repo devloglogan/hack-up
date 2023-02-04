@@ -1,0 +1,14 @@
+2a60927148abd1d33b818b535e306557
+::res://::1675521746
+icon.svg::CompressedTexture2D::1702880004274774112::1675479638::1675479648::1::::<><>::
+main.tscn::PackedScene::2517289608484022100::1675521446::0::1::::<><>::uid://4k8xekm6qq1p<>uid://bjrrixu8hfsmf<>uid://bdxn58ely8gbh
+player.gd::GDScript::-1::1675481842::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::3054262413924760477::1675481870::0::1::::<><>::res://player.gd
+tile_map.tres::MeshLibrary::2058165203193387315::1675521446::0::1::::<><>::uid://2xbyyy02kod6
+::res://Assets/::1675521707
+sphere.blend::PackedScene::2645312537656622121::1675521429::1675521435::1::::<><>::uid://bboa7g5dl4otu
+sphere.png::CompressedTexture2D::2485568322929322954::1675488573::1675488578::1::::<><>::
+Tile.blend::PackedScene::639445111717735973::1675484470::1675484474::1::::<><>::uid://2xbyyy02kod6
+tile_mat.png::CompressedTexture2D::1942684341424818653::1675484410::1675484413::1::::<><>::
+::res://Assets/textures/::1675521707
+sphere.png::CompressedTexture2D::1935229045579917600::1675483872::1675483937::1::::<><>::
