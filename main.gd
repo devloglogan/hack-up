@@ -1,13 +1,27 @@
 extends Node
 
 @onready var terminal_window = %TerminalWindow
+@onready var level = $Level
 
 var node_being_hacked
 
 func _ready():
-	#var node = $Level/NetworkMap/BranchA
-	#print (node.get_child_connections())
-	pass
+	load_level("res://Maps/Level1/level_1.tscn")
+
+func load_level(path):
+	var packed_scene = load(path)
+	if packed_scene == null or not packed_scene is PackedScene:
+		return
+
+	if level != null:
+		remove_child(level)
+		level.queue_free()
+
+	level = packed_scene.instantiate()
+	level.name = "Level"
+	add_child(level)
+
+	level.root_node_hacked.connect(self._on_root_node_hacked)
 
 func _on_player_hack_activated(node):
 	if not node_being_hacked and not node.is_hacked and node.check_hackable():
@@ -25,3 +39,6 @@ func _on_terminal_window_security_reduced(remaining):
 
 func _on_terminal_window_terminal_completed():
 	node_being_hacked = null
+
+func _on_root_node_hacked():
+	OS.alert("You hacked the root node!")
