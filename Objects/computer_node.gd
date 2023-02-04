@@ -9,6 +9,9 @@ var security_remaining := 5
 signal hacked()
 signal hack_failed()
 
+func _physics_process(delta):
+	rotate_y(PI * .25 * delta)
+
 func get_parent_connection():
 	if parent_connection_path != NodePath():
 		var parent_connection = get_node(parent_connection_path)
