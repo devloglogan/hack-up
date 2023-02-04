@@ -7,6 +7,12 @@ var connections := {}
 func _ready():
 	layout_connections()
 
+func get_root_node():
+	for node in get_tree().get_nodes_in_group("computer_node"):
+		if node.parent_connection_path == NodePath():
+			return node
+	return null
+
 func layout_connections() -> void:
 	for computer_node in get_tree().get_nodes_in_group("computer_node"):
 		var parent_node = computer_node.get_parent_connection()

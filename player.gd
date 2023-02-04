@@ -4,9 +4,14 @@ const SPEED := 5.0
 const HURT_SPEED := 10.0
 const HURT_FRAMES := 10
 
+@onready var hack_area: Area3D = $HackArea
+
 var is_hurt := false
 var hurt_vector := Vector3.ZERO
 var hurt_count := 0
+
+signal hack_activated(node)
+signal player_moved()
 
 func _physics_process(_delta):
 	if is_hurt:
@@ -29,6 +34,18 @@ func _physics_process(_delta):
 
 	move_and_slide()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("player_activate_terminal"):
+		get_viewport().set_input_as_handled()
+
+		var nodes = hack_area.get_overlapping_bodies()
+		for node in nodes:
+			if node.has_method('hack'):
+				hack_activated.emit(node)
+
+	if event.is_action_pressed("player_forward") or event.is_action_pressed("player_back") or event.is_action_pressed("player_left") or event.is_action_pressed("player_right"):
+		player_moved.emit()
+
 func hurt(attacker, push_back_vector: Vector3 = Vector3.ZERO):
 	is_hurt = true
 	if push_back_vector != Vector3.ZERO:
@@ -37,3 +54,4 @@ func hurt(attacker, push_back_vector: Vector3 = Vector3.ZERO):
 		hurt_vector = (global_position - attacker.global_position).normalized()
 	hurt_vector.y = 0.0
 	hurt_count = HURT_FRAMES
+	player_moved.emit()
