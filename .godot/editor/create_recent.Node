@@ -1,7 +1,0 @@
-CollisionShape3D
-StaticBody3D
-MeshInstance3D
-CharacterBody3D
-Camera3D
-GridMap
-Node

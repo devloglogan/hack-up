@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjrrixu8hfsmf"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bln2y"]
+[ext_resource type="PackedScene" uid="uid://xichgjn4fxmd" path="res://Assets/player.blend" id="2_cbrbj"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_obitc"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_vmbc2"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fx0tj"]
+radius = 0.469812
+height = 1.34628
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_bln2y")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_obitc")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_vmbc2")
+shape = SubResource("CapsuleShape3D_fx0tj")
+
+[node name="player" parent="." instance=ExtResource("2_cbrbj")]

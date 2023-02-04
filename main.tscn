@@ -17,7 +17,9 @@ background_color = Color(0.0941176, 0.0784314, 0.145098, 1)
 sky = SubResource("Sky_n82qc")
 tonemap_mode = 2
 glow_enabled = true
+glow_mix = 0.33
 glow_bloom = 1.0
+glow_blend_mode = 4
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bwui0"]
 
@@ -27,6 +29,7 @@ glow_bloom = 1.0
 environment = SubResource("Environment_k2kby")
 
 [node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh_library = ExtResource("1_kwjf5")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
@@ -35,7 +38,7 @@ data = {
 }
 
 [node name="Player" parent="." instance=ExtResource("2_jmdnv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.544882, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 4.45512, 3)
@@ -46,4 +49,4 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 4.45512
 shape = SubResource("WorldBoundaryShape3D_bwui0")
 
 [node name="sphere" parent="." instance=ExtResource("3_cgkdg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99723, 1, 0.87162)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1)
