@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Objects/projectile.gd" id="1_iklt7"]
 [ext_resource type="PackedScene" uid="uid://d4n3eio8odyqb" path="res://cube_projectile.tscn" id="1_n0pcd"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_xock2"]
-radius = 0.25
+[sub_resource type="SphereShape3D" id="SphereShape3D_leyv1"]
+radius = 0.35
 
 [node name="Projectile" type="Area3D"]
 collision_layer = 4
@@ -13,6 +13,6 @@ monitorable = false
 script = ExtResource("1_iklt7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_xock2")
+shape = SubResource("SphereShape3D_leyv1")
 
 [node name="CubeProjectile" parent="." instance=ExtResource("1_n0pcd")]

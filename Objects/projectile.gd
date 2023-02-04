@@ -9,10 +9,11 @@ var countdown := LIFETIME
 func _physics_process(delta):
 	position += direction * SPEED * delta
 
-	var bodies = get_overlapping_bodies()
-	for body in bodies:
-		if body.has_method('hurt'):
-			body.hurt(self)
+	var nodes = get_overlapping_bodies()
+	if nodes.size() > 0:
+		for node in nodes:
+			if node.has_method('hurt'):
+				node.hurt(self)
 		queue_free()
 		return
 
