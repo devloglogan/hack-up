@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnxoyix7jggw"]
+[gd_scene load_steps=10 format=3 uid="uid://dnxoyix7jggw"]
 
 [ext_resource type="PackedScene" uid="uid://b42rg8bwghevo" path="res://Objects/computer_node.tscn" id="1_l8m7i"]
 [ext_resource type="Script" path="res://Objects/zappy_computer_node.gd" id="2_4wsnf"]
+[ext_resource type="ArrayMesh" uid="uid://c5kjksexukd37" path="res://Assets/meshes/bolt_mesh.tres" id="3_mhha5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chw1s"]
 transparency = 1
@@ -14,8 +15,37 @@ material = SubResource("StandardMaterial3D_chw1s")
 radius = 1.0
 height = 2.0
 
+[sub_resource type="Shader" id="Shader_dwjnv"]
+code = "shader_type spatial;
+
+uniform vec3 emission_color: source_color;
+uniform float alpha_value: hint_range(0.0, 1.0, 0.1) = .1;
+
+void fragment() {
+	ALPHA = alpha_value;
+	EMISSION = emission_color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aj1e2"]
+render_priority = 0
+shader = SubResource("Shader_dwjnv")
+shader_parameter/emission_color = Color(0.894118, 0.231373, 0.266667, 1)
+shader_parameter/alpha_value = 0.1
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_345t6"]
 radius = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v7ho6"]
+emission_shape = 2
+emission_sphere_radius = 0.01
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.01
+initial_velocity_max = 0.01
+angle_min = -54.7
+angle_max = 34.0
 
 [node name="ZappyComputerNode" instance=ExtResource("1_l8m7i")]
 script = ExtResource("2_4wsnf")
@@ -27,6 +57,7 @@ autostart = true
 [node name="ZapMeshInstance" type="MeshInstance3D" parent="." index="3"]
 visible = false
 mesh = SubResource("SphereMesh_s5k0r")
+surface_material_override/0 = SubResource("ShaderMaterial_aj1e2")
 
 [node name="ZapArea" type="Area3D" parent="." index="4"]
 collision_layer = 0
@@ -34,6 +65,13 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ZapArea" index="0"]
 shape = SubResource("SphereShape3D_345t6")
+
+[node name="ZapParticles" type="GPUParticles3D" parent="." index="5"]
+visible = false
+amount = 16
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_v7ho6")
+draw_pass_1 = ExtResource("3_mhha5")
 
 [connection signal="timeout" from="ZapTimer" to="." method="_on_zap_timer_timeout"]
 

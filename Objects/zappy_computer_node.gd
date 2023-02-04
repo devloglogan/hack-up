@@ -1,6 +1,7 @@
 extends "res://Objects/computer_node.gd"
 
 @onready var zap_mesh_instance = $ZapMeshInstance
+@onready var zap_particles = $ZapParticles
 
 var is_zapping := false
 
@@ -19,8 +20,10 @@ func _on_zap_timer_timeout():
 		return
 	is_zapping = not is_zapping
 	zap_mesh_instance.visible = is_zapping
+	zap_particles.visible = is_zapping
 
 func _on_hacked():
 	is_zapping = false
 	zap_mesh_instance.visible = is_zapping
+	zap_particles.visible = is_zapping
 
