@@ -1,7 +1,7 @@
 extends Node3D
 
-@onready var cube = $cube
-@onready var inner_cube = $inner_cube
+@onready var cube = $Cube
+@onready var inner_cube = $InnerCube
 
 func _physics_process(delta):
 	cube.rotate_x(PI * delta)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bb4nnlh70plvw"]
 
-[ext_resource type="MeshLibrary" uid="uid://chy6r0qixcq4y" path="res://tile_map.tres" id="1_kwjf5"]
+[ext_resource type="MeshLibrary" uid="uid://du4gvmkkq5o3h" path="res://tile_map.tres" id="1_kwjf5"]
 [ext_resource type="PackedScene" uid="uid://bjrrixu8hfsmf" path="res://player.tscn" id="2_jmdnv"]
 [ext_resource type="PackedScene" uid="uid://d4n3eio8odyqb" path="res://cube_projectile.tscn" id="4_l1n5b"]
 [ext_resource type="PackedScene" uid="uid://crjs06gvk5cr3" path="res://Assets/glb/sphere.glb" id="4_wo4tf"]
@@ -18,9 +18,8 @@ background_color = Color(0.0941176, 0.0784314, 0.145098, 1)
 sky = SubResource("Sky_n82qc")
 tonemap_mode = 2
 glow_enabled = true
-glow_mix = 0.33
-glow_bloom = 1.0
-glow_blend_mode = 4
+glow_bloom = 0.5
+glow_blend_mode = 0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bwui0"]
 
@@ -50,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 shape = SubResource("WorldBoundaryShape3D_bwui0")
 
 [node name="CubeProjectile" parent="." instance=ExtResource("4_l1n5b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20333, 1, 0)
 
 [node name="sphere" parent="." instance=ExtResource("4_wo4tf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87193, 1, -0.091083)
