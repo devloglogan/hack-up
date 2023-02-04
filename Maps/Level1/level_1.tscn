@@ -1,34 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://de8yxye8mso66"]
+[gd_scene load_steps=4 format=3 uid="uid://de8yxye8mso66"]
 
 [ext_resource type="PackedScene" uid="uid://ca1sde7dwsfuu" path="res://Maps/network_map.tscn" id="1_88u4y"]
 [ext_resource type="PackedScene" uid="uid://b42rg8bwghevo" path="res://Objects/computer_node.tscn" id="2_wjwwj"]
+[ext_resource type="PackedScene" uid="uid://c2mu8ph3phcb0" path="res://Objects/shooty_computer_node.tscn" id="3_60ijo"]
 
 [node name="Level1" type="Node3D"]
 
 [node name="NetworkMap" parent="." instance=ExtResource("1_88u4y")]
 
 [node name="RootNode" parent="NetworkMap" instance=ExtResource("2_wjwwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.06088)
 
-[node name="BranchA" parent="NetworkMap" instance=ExtResource("2_wjwwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94972, 0, 1.94089)
+[node name="BranchA" parent="NetworkMap" instance=ExtResource("3_60ijo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19528, 0, -1.61178)
+shoot_direction = 2
 parent_connection_path = NodePath("../RootNode")
 
-[node name="BranchB" parent="NetworkMap" instance=ExtResource("2_wjwwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11734, 0, 1.94089)
+[node name="BranchB" parent="NetworkMap" instance=ExtResource("3_60ijo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7261, 0, -0.0365404)
+shoot_direction = 2
 parent_connection_path = NodePath("../RootNode")
 
 [node name="NodeA-1" parent="NetworkMap" instance=ExtResource("2_wjwwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19699, 0, 4.50998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.20794, 0, 1.89575)
 parent_connection_path = NodePath("../BranchA")
 
 [node name="NodeA-2" parent="NetworkMap" instance=ExtResource("2_wjwwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08386, 0, 4.50998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12832, 0, 4.50998)
 parent_connection_path = NodePath("../BranchA")
 
 [node name="NodeB-1" parent="NetworkMap" instance=ExtResource("2_wjwwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.727011, 0, 4.50998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0231822, 0, 2.06333)
 parent_connection_path = NodePath("../BranchB")
 
 [node name="NodeB-2" parent="NetworkMap" instance=ExtResource("2_wjwwj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35395, 0, 4.50998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11934, 0, 4.50998)
 parent_connection_path = NodePath("../BranchB")

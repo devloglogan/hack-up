@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2mu8ph3phcb0"]
+
+[ext_resource type="PackedScene" uid="uid://b42rg8bwghevo" path="res://Objects/computer_node.tscn" id="1_7gyol"]
+[ext_resource type="Script" path="res://Objects/shooty_computer_node.gd" id="2_486uf"]
+
+[node name="ShootyComputerNode" instance=ExtResource("1_7gyol")]
+script = ExtResource("2_486uf")
+shoot_direction = 0
+
+[node name="ShootTimer" type="Timer" parent="." index="2"]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+
+[editable path="Sphere"]
