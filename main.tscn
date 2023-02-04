@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb4nnlh70plvw"]
+[gd_scene load_steps=9 format=3 uid="uid://bb4nnlh70plvw"]
 
-[ext_resource type="MeshLibrary" uid="uid://4k8xekm6qq1p" path="res://tile_map.tres" id="1_kwjf5"]
+[ext_resource type="MeshLibrary" uid="uid://chy6r0qixcq4y" path="res://tile_map.tres" id="1_kwjf5"]
 [ext_resource type="PackedScene" uid="uid://bjrrixu8hfsmf" path="res://player.tscn" id="2_jmdnv"]
-[ext_resource type="PackedScene" uid="uid://bdxn58ely8gbh" path="res://Assets/sphere.blend" id="3_cgkdg"]
+[ext_resource type="PackedScene" uid="uid://d4n3eio8odyqb" path="res://cube_projectile.tscn" id="4_l1n5b"]
+[ext_resource type="PackedScene" uid="uid://crjs06gvk5cr3" path="res://Assets/glb/sphere.glb" id="4_wo4tf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ptv1a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -48,5 +49,8 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_bwui0")
 
-[node name="sphere" parent="." instance=ExtResource("3_cgkdg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1)
+[node name="CubeProjectile" parent="." instance=ExtResource("4_l1n5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+
+[node name="sphere" parent="." instance=ExtResource("4_wo4tf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87193, 1, -0.091083)
