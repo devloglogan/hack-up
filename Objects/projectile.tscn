@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ymcdvnpbj1ma"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://Objects/projectile.gd" id="1_iklt7"]
-[ext_resource type="PackedScene" uid="uid://d4n3eio8odyqb" path="res://cube_projectile.tscn" id="1_n0pcd"]
+[ext_resource type="PackedScene" uid="uid://d4n3eio8odyqb" path="res://Assets/scenes/cube_projectile.tscn" id="1_n0pcd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_q38gp"]
 radius = 0.35

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4n3eio8odyqb"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://cube_projectile.gd" id="1_5d4kl"]
+[ext_resource type="Script" path="res://Assets/scenes/cube_projectile.gd" id="1_5d4kl"]
 [ext_resource type="PackedScene" uid="uid://dp2ep6l34odvd" path="res://Assets/glb/cube.glb" id="2_u5j2p"]
 
 [node name="CubeProjectile" type="Node3D"]
