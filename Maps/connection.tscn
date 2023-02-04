@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" path="res://Maps/connection.gd" id="1_kbyxn"]
 
-[sub_resource type="Shader" id="Shader_ygq6u"]
+[sub_resource type="BoxMesh" id="BoxMesh_tsbbl"]
+resource_local_to_scene = true
+size = Vector3(0.05, 0.05, 1)
+
+[sub_resource type="Shader" id="Shader_5lxtj"]
 code = "shader_type spatial;
 
 uniform vec3 emission_color: source_color;
@@ -19,18 +23,14 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xj07l"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_djici"]
 render_priority = 0
-shader = SubResource("Shader_ygq6u")
+shader = SubResource("Shader_5lxtj")
 shader_parameter/emission_color = Color(0.894118, 0.231373, 0.266667, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_62t5m"]
-resource_local_to_scene = true
-material = SubResource("ShaderMaterial_xj07l")
-size = Vector3(0.05, 0.05, 1)
 
 [node name="Connection" type="StaticBody3D"]
 script = ExtResource("1_kbyxn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_62t5m")
+mesh = SubResource("BoxMesh_tsbbl")
+surface_material_override/0 = SubResource("ShaderMaterial_djici")
