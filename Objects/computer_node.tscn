@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b42rg8bwghevo"]
+
+[ext_resource type="Script" path="res://Objects/computer_node.gd" id="1_bgcx1"]
+[ext_resource type="PackedScene" uid="uid://crjs06gvk5cr3" path="res://Assets/glb/sphere.glb" id="2_hv151"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sku7l"]
+
+[node name="ComputerNode" type="StaticBody3D" groups=["computer_node"]]
+script = ExtResource("1_bgcx1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_sku7l")
+
+[node name="Sphere" parent="." instance=ExtResource("2_hv151")]
