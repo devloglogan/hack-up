@@ -32,6 +32,8 @@ func _ready():
 	shoot_projectiles.call_deferred()
 
 func shoot_projectiles() -> void:
+	if is_hacked:
+		return
 	if shoot_direction == ShootDirection.ALTERNATING:
 		_cur_shoot_direction = ShootDirection.DIAGONAL if _cur_shoot_direction == ShootDirection.CARDINAL else ShootDirection.CARDINAL
 	else:

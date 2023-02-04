@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjrrixu8hfsmf"]
+[gd_scene load_steps=5 format=3 uid="uid://bjrrixu8hfsmf"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_bln2y"]
 [ext_resource type="PackedScene" uid="uid://bloy6njh8wupu" path="res://Assets/glb/player.glb" id="2_uxrvo"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fx0tj"]
 radius = 0.469812
 height = 1.34628
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3unkj"]
+radius = 1.0
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
@@ -15,3 +18,9 @@ script = ExtResource("1_bln2y")
 shape = SubResource("CapsuleShape3D_fx0tj")
 
 [node name="player" parent="." instance=ExtResource("2_uxrvo")]
+
+[node name="HackArea" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HackArea"]
+shape = SubResource("SphereShape3D_3unkj")

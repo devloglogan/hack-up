@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb4nnlh70plvw"]
+[gd_scene load_steps=10 format=3 uid="uid://bb4nnlh70plvw"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_7vku1"]
 [ext_resource type="MeshLibrary" uid="uid://du4gvmkkq5o3h" path="res://tile_map.tres" id="1_kwjf5"]
 [ext_resource type="PackedScene" uid="uid://bjrrixu8hfsmf" path="res://player.tscn" id="2_jmdnv"]
 [ext_resource type="PackedScene" uid="uid://de8yxye8mso66" path="res://Maps/Level1/level_1.tscn" id="3_ie5b0"]
+[ext_resource type="PackedScene" uid="uid://d24872ur26jko" path="res://Terminal/terminal_window.tscn" id="4_bi2n5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ptv1a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,6 +25,7 @@ glow_blend_mode = 0
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bwui0"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_7vku1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_k2kby")
@@ -48,3 +51,18 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 shape = SubResource("WorldBoundaryShape3D_bwui0")
 
 [node name="Level" parent="." instance=ExtResource("3_ie5b0")]
+
+[node name="OverlayLayer" type="CanvasLayer" parent="."]
+
+[node name="TerminalWindow" parent="OverlayLayer" instance=ExtResource("4_bi2n5")]
+unique_name_in_owner = true
+visible = false
+offset_left = 1244.0
+offset_top = 34.0
+offset_right = -36.0
+offset_bottom = -566.0
+
+[connection signal="hack_activated" from="Player" to="." method="_on_player_hack_activated"]
+[connection signal="player_moved" from="Player" to="." method="_on_player_player_moved"]
+[connection signal="security_reduced" from="OverlayLayer/TerminalWindow" to="." method="_on_terminal_window_security_reduced"]
+[connection signal="terminal_completed" from="OverlayLayer/TerminalWindow" to="." method="_on_terminal_window_terminal_completed"]
