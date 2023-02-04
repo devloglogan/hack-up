@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://du4gvmkkq5o3h" path="res://tile_map.tres" id="1_kwjf5"]
 [ext_resource type="PackedScene" uid="uid://bjrrixu8hfsmf" path="res://player.tscn" id="2_jmdnv"]
-[ext_resource type="PackedScene" uid="uid://crjs06gvk5cr3" path="res://Assets/glb/sphere.glb" id="4_wo4tf"]
+[ext_resource type="PackedScene" uid="uid://de8yxye8mso66" path="res://Maps/Level1/level_1.tscn" id="3_ie5b0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ptv1a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,7 +28,7 @@ glow_blend_mode = 0
 environment = SubResource("Environment_k2kby")
 
 [node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
 mesh_library = ExtResource("1_kwjf5")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
@@ -37,7 +37,7 @@ data = {
 }
 
 [node name="Player" parent="." instance=ExtResource("2_jmdnv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4.45512, 4)
@@ -47,5 +47,4 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_bwui0")
 
-[node name="sphere" parent="." instance=ExtResource("4_wo4tf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87193, 1, -0.091083)
+[node name="Level" parent="." instance=ExtResource("3_ie5b0")]
