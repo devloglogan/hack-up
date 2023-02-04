@@ -13,7 +13,7 @@ func _physics_process(delta):
 	if nodes.size() > 0:
 		for node in nodes:
 			if node.has_method('hurt'):
-				node.hurt(self)
+				node.hurt(self, direction)
 		queue_free()
 		return
 

@@ -29,8 +29,11 @@ func _physics_process(_delta):
 
 	move_and_slide()
 
-func hurt(attacker):
+func hurt(attacker, push_back_vector: Vector3 = Vector3.ZERO):
 	is_hurt = true
-	hurt_vector = (global_position - attacker.global_position).normalized()
+	if push_back_vector != Vector3.ZERO:
+		hurt_vector = push_back_vector.normalized()
+	else:
+		hurt_vector = (global_position - attacker.global_position).normalized()
 	hurt_vector.y = 0.0
 	hurt_count = HURT_FRAMES
