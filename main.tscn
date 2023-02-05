@@ -63,6 +63,7 @@ offset_right = -36.0
 offset_bottom = -566.0
 
 [connection signal="hack_activated" from="Player" to="." method="_on_player_hack_activated"]
+[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
 [connection signal="player_moved" from="Player" to="." method="_on_player_player_moved"]
 [connection signal="security_reduced" from="OverlayLayer/TerminalWindow" to="." method="_on_terminal_window_security_reduced"]
 [connection signal="terminal_completed" from="OverlayLayer/TerminalWindow" to="." method="_on_terminal_window_terminal_completed"]

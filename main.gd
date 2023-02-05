@@ -1,5 +1,7 @@
 extends Node
 
+@onready var player = $Player
+@onready var player_start_position: Vector3 = player.global_position
 @onready var terminal_window = %TerminalWindow
 @onready var level = $Level
 
@@ -23,6 +25,9 @@ func load_level(path):
 
 	level.root_node_hacked.connect(self._on_root_node_hacked)
 
+	player.reset_player()
+	player.global_position = player_start_position
+
 func _on_player_hack_activated(node):
 	if not node_being_hacked:
 		if not node.is_hacked and node.check_hackable():
@@ -45,3 +50,7 @@ func _on_terminal_window_terminal_completed():
 
 func _on_root_node_hacked():
 	OS.alert("You hacked the root node!")
+
+func _on_player_player_died():
+	OS.alert("You died!")
+	load_level("res://Maps/Level1/level_1.tscn")
