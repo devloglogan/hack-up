@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player.gd" id="1_bln2y"]
 [ext_resource type="PackedScene" uid="uid://bloy6njh8wupu" path="res://Assets/glb/player.glb" id="2_uxrvo"]
-[ext_resource type="AudioStream" uid="uid://0ciw80x7f8ka" path="res://Sound/GGJ_Player_Damage.wav" id="3_16kn8"]
+[ext_resource type="AudioStream" uid="uid://dbycn8eifhik7" path="res://Sound/GGJ_Player_Knockback_v2.wav" id="3_xrdrj"]
 [ext_resource type="AudioStream" uid="uid://b603eh3v1hff8" path="res://Sound/GGJ_error.wav" id="4_ei1td"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fx0tj"]
@@ -310,7 +310,7 @@ libraries = {
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 
 [node name="DamageSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_16kn8")
+stream = ExtResource("3_xrdrj")
 volume_db = -10.0
 bus = &"Player"
 
