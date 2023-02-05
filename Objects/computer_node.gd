@@ -4,6 +4,8 @@ extends StaticBody3D
 @export var is_hacked := false
 @export var parent_connection_path: NodePath
 
+@onready var sphere_mesh_instance: MeshInstance3D = $Sphere/Sphere
+
 var security_remaining := 20
 
 signal hacked()
@@ -44,4 +46,5 @@ func hack(p_remaining):
 		security_remaining = p_remaining
 		if security_remaining <= 0:
 			is_hacked = true
+			sphere_mesh_instance.get_surface_override_material(1).set_shader_parameter('emission_color', Color('2ce8f5'))
 			hacked.emit()

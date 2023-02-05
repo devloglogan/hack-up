@@ -121,6 +121,7 @@ void fragment() {
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ipshe"]
+resource_local_to_scene = true
 resource_name = "sphere_red"
 render_priority = 0
 shader = SubResource("Shader_dmdt8")

@@ -29,3 +29,9 @@ func layout_connections() -> void:
 
 		var connection_vector = parent_node.global_position - computer_node.global_position
 		connection.setup_connection(computer_node.global_position + (connection_vector / 2.0), connection_vector)
+
+		computer_node.hacked.connect(self._on_node_hacked.bind(connection))
+
+func _on_node_hacked(connection):
+	connection.set_hacked(true)
+
