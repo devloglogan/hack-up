@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb4nnlh70plvw"]
+[gd_scene load_steps=11 format=3 uid="uid://bb4nnlh70plvw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7vku1"]
 [ext_resource type="MeshLibrary" uid="uid://du4gvmkkq5o3h" path="res://tile_map.tres" id="1_kwjf5"]
 [ext_resource type="PackedScene" uid="uid://bjrrixu8hfsmf" path="res://player.tscn" id="2_jmdnv"]
 [ext_resource type="PackedScene" uid="uid://de8yxye8mso66" path="res://Maps/Level1/level_1.tscn" id="3_ie5b0"]
 [ext_resource type="PackedScene" uid="uid://d24872ur26jko" path="res://Terminal/terminal_window.tscn" id="4_bi2n5"]
+[ext_resource type="Script" path="res://addons/interpolated_camera_3d/interpolated_camera_3d.gd" id="6_n1s2c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ptv1a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -61,6 +62,12 @@ offset_left = 1244.0
 offset_top = 34.0
 offset_right = -36.0
 offset_bottom = -566.0
+
+[node name="InterpolatedCamera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4.45512, 12)
+current = true
+script = ExtResource("6_n1s2c")
+target = NodePath("../Player/Camera3D")
 
 [connection signal="hack_activated" from="Player" to="." method="_on_player_hack_activated"]
 [connection signal="player_moved" from="Player" to="." method="_on_player_player_moved"]
