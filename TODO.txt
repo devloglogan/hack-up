@@ -3,11 +3,7 @@ TODO
 
 Required:
 
- * Menus to start the game and choose your level
  * A series of tutorial levels to build things up
- * Color code the connections and nodes for state
- * Make nicer win condition
- * Make lose condition
 
 Optional:
 

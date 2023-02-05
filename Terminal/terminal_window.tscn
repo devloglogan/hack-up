@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://d24872ur26jko"]
 
-[ext_resource type="Texture2D" uid="uid://db6c3wi3yriq7" path="res://Assets/2d/window.png" id="1_50acl"]
 [ext_resource type="Script" path="res://Terminal/terminal_window.gd" id="1_mxwxs"]
 [ext_resource type="FontFile" uid="uid://t7f6bdv56ke1" path="res://Assets/fonts/Hack/ttf/Hack-Bold.ttf" id="2_c1xws"]
+[ext_resource type="PackedScene" uid="uid://bkdn76ixdu7nx" path="res://Terminal/window_texture.tscn" id="2_kqy1m"]
 [ext_resource type="FontFile" uid="uid://copco060nbypq" path="res://Assets/fonts/Hack/ttf/Hack-Regular.ttf" id="3_3l5bf"]
 [ext_resource type="FontFile" uid="uid://diixkdf5r32r7" path="res://Assets/fonts/Hack/ttf/Hack-Italic.ttf" id="4_8n4ja"]
 [ext_resource type="FontFile" uid="uid://br601pghda3aw" path="res://Assets/fonts/Hack/ttf/Hack-BoldItalic.ttf" id="5_4mv6j"]
@@ -22,11 +22,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mxwxs")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" parent="." instance=ExtResource("2_kqy1m")]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_50acl")
 
 [node name="WindowTitle" type="Label" parent="."]
 layout_mode = 0

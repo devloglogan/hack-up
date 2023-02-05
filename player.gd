@@ -13,6 +13,7 @@ var hurt_count := 0
 
 var health := MAX_HEALTH
 var is_dead := false
+var is_playing := false
 
 signal hack_activated(node)
 signal player_moved()
@@ -25,6 +26,8 @@ func reset_player():
 	$AnimationPlayer.play("RESET")
 
 func _physics_process(_delta):
+	if not is_playing:
+		return
 	if is_hurt:
 		velocity = hurt_vector * HURT_SPEED
 		if hurt_count > 0:
@@ -48,6 +51,8 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not is_playing:
+		return
 	if event.is_action_pressed("player_activate_terminal"):
 		get_viewport().set_input_as_handled()
 
