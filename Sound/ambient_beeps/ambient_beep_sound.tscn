@@ -1,0 +1,20 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwbtja05yba6i"]
+
+[ext_resource type="Script" path="res://Sound/ambient_beeps/ambient_beep_sound.gd" id="1_nc22v"]
+[ext_resource type="AudioStream" uid="uid://cmqh3o6ygyy6l" path="res://Sound/ambient_beeps/GGJ_amb_beep_01.wav" id="2_sautm"]
+[ext_resource type="AudioStream" uid="uid://b25tyngiyb1xu" path="res://Sound/ambient_beeps/GGJ_amb_beep_02.wav" id="3_bqc3m"]
+[ext_resource type="AudioStream" uid="uid://clv1vjgm8s1ys" path="res://Sound/ambient_beeps/GGJ_amb_beep_03.wav" id="4_0mjry"]
+[ext_resource type="AudioStream" uid="uid://b6d1bws1dmbsd" path="res://Sound/ambient_beeps/GGJ_amb_beep_04.wav" id="5_2v7au"]
+[ext_resource type="AudioStream" uid="uid://cghdctgi5ew6b" path="res://Sound/ambient_beeps/GGJ_amb_beep_05.wav" id="6_unsht"]
+[ext_resource type="AudioStream" uid="uid://d0r6dmbvjiokf" path="res://Sound/ambient_beeps/GGJ_amb_beep_06.wav" id="7_yey8c"]
+
+[node name="AmbientBeepSound" type="AudioStreamPlayer"]
+volume_db = -6.0
+script = ExtResource("1_nc22v")
+beeps = Array[AudioStream]([ExtResource("2_sautm"), ExtResource("3_bqc3m"), ExtResource("4_0mjry"), ExtResource("5_2v7au"), ExtResource("6_unsht"), ExtResource("7_yey8c")])
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

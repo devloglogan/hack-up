@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctsfcsdwpx2ur"]
+[gd_scene load_steps=15 format=3 uid="uid://ctsfcsdwpx2ur"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7vku1"]
 [ext_resource type="MeshLibrary" uid="uid://du4gvmkkq5o3h" path="res://tile_map.tres" id="1_kwjf5"]
@@ -8,6 +8,8 @@
 [ext_resource type="LabelSettings" uid="uid://btd1mc7nwpydb" path="res://Assets/fonts/health_font.tres" id="6_5vcf0"]
 [ext_resource type="Script" path="res://addons/interpolated_camera_3d/interpolated_camera_3d.gd" id="6_n1s2c"]
 [ext_resource type="PackedScene" uid="uid://be86o5yyr2q2v" path="res://Menu/accept_menu.tscn" id="7_l0dbe"]
+[ext_resource type="AudioStream" uid="uid://csw8jdvbv3i1c" path="res://Sound/GGJ_ambience_base_layer.wav" id="9_kvepa"]
+[ext_resource type="PackedScene" uid="uid://dwbtja05yba6i" path="res://Sound/ambient_beeps/ambient_beep_sound.tscn" id="10_v4ot2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ptv1a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -127,6 +129,13 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 current = true
 script = ExtResource("6_n1s2c")
 target = NodePath("../Player/Camera3D")
+
+[node name="AmbientBaseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_kvepa")
+volume_db = 5.0
+autoplay = true
+
+[node name="AmbientBeepSound" parent="." instance=ExtResource("10_v4ot2")]
 
 [connection signal="hack_activated" from="Player" to="." method="_on_player_hack_activated"]
 [connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
