@@ -7,6 +7,7 @@ const MAX_HEALTH := 3
 
 @onready var hack_area: Area3D = $HackArea
 @onready var player_visual = $PlayerVisual
+@onready var damage_sound = $DamageSound
 
 var is_hurt := false
 var hurt_vector := Vector3.ZERO
@@ -72,6 +73,7 @@ func hurt(attacker, push_back_vector: Vector3 = Vector3.ZERO):
 	if health <= 0:
 		return
 	health -= 1
+	damage_sound.play()
 	if health == 0:
 		is_dead = true
 

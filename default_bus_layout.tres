@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bx4cuyda56or2"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://bx4cuyda56or2"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_hpw6f"]
 resource_name = "Reverb"
@@ -10,6 +10,10 @@ wet = 0.1
 resource_name = "Compressor"
 threshold = -14.0
 release_ms = 120.0
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_0hbju"]
+resource_name = "Phaser"
+range_min_hz = 220.0
 
 [resource]
 bus/1/name = &"Node"
@@ -28,3 +32,11 @@ bus/2/volume_db = 0.0
 bus/2/send = &"Master"
 bus/2/effect/0/effect = SubResource("AudioEffectCompressor_1lnte")
 bus/2/effect/0/enabled = true
+bus/3/name = &"Player"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectPhaser_0hbju")
+bus/3/effect/0/enabled = true
