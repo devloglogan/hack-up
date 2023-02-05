@@ -8,6 +8,7 @@ const MAX_HEALTH := 3
 @onready var hack_area: Area3D = $HackArea
 @onready var player_visual = $PlayerVisual
 @onready var damage_sound = $DamageSound
+@onready var hack_failed_sound = $HackFailedSound
 
 var is_hurt := false
 var hurt_vector := Vector3.ZERO
@@ -89,4 +90,5 @@ func hurt(attacker, push_back_vector: Vector3 = Vector3.ZERO):
 
 
 func hack_failed():
+	hack_failed_sound.play()
 	$AnimationPlayer.play("HackFailed")

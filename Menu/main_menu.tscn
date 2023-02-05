@@ -119,3 +119,6 @@ libraries = {
 
 [node name="TextSound" type="AudioStreamPlayer" parent="." index="5"]
 stream = ExtResource("4_iqjat")
+
+[node name="KeystrokeSound" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("4_iqjat")

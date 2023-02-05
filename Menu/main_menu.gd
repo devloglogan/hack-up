@@ -6,6 +6,7 @@ const MyMenuButton = preload("menu_button.tscn")
 
 @onready var button_container = $ButtonContainer
 @onready var text_sound = $TextSound
+@onready var keystroke_sound = $KeystrokeSound
 
 signal level_selected (path)
 
@@ -26,6 +27,7 @@ func setup_level_menu(levels: Array):
 		button_container.add_child(level_button)
 		level_button.text = "> Vector %s" % level_number
 		level_button.pressed.connect(self._on_level_button_pressed.bind(level_path))
+		level_button.focus_entered.connect(_on_focus_entered)
 		level_number += 1
 
 func _on_level_button_pressed(level_path):
@@ -39,3 +41,7 @@ func _physics_process(delta):
 	if $AnimationPlayer.current_animation == "Start" and not text_sound.playing:
 		text_sound.stream = text_sounds.pick_random()
 		text_sound.play()
+
+func _on_focus_entered():
+	keystroke_sound.pitch_scale = randf_range(.9, 1.1)
+	keystroke_sound.play()
