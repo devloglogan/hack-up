@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cx3l3evojfr88"]
 
 [ext_resource type="Script" path="res://Menu/main_menu.gd" id="1_81nn2"]
-[ext_resource type="PackedScene" path="res://Menu/window_base.tscn" id="1_jyo1a"]
+[ext_resource type="PackedScene" uid="uid://b4emb8oumgcje" path="res://Menu/window_base.tscn" id="1_jyo1a"]
 [ext_resource type="PackedScene" uid="uid://bdbnltxf7wg1c" path="res://Menu/menu_button.tscn" id="7_fbvgc"]
 
 [sub_resource type="Animation" id="Animation_c2mcm"]
@@ -86,14 +86,17 @@ script = ExtResource("1_81nn2")
 text = "HACK UP!"
 
 [node name="Text" parent="." index="2"]
+offset_left = 22.0
+offset_top = 40.0
+offset_right = 617.0
 text = "Welcome Syndicate Agent!
 
 Select your attack vector:"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="." index="3"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 108.0
+offset_left = 25.0
+offset_top = 194.0
 offset_right = 447.0
 offset_bottom = 465.0
 

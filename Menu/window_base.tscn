@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://b4emb8oumgcje"]
 
 [ext_resource type="Script" path="res://Menu/window_base.gd" id="1_85xyh"]
 [ext_resource type="PackedScene" uid="uid://bkdn76ixdu7nx" path="res://Terminal/window_texture.tscn" id="2_m0dbq"]
@@ -44,10 +44,10 @@ theme_override_fonts/normal_font = ExtResource("4_hd13c")
 theme_override_fonts/bold_font = ExtResource("3_q7f8g")
 theme_override_fonts/italics_font = ExtResource("5_u6ste")
 theme_override_fonts/bold_italics_font = ExtResource("6_vdqlh")
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
-theme_override_font_sizes/italics_font_size = 16
-theme_override_font_sizes/bold_italics_font_size = 16
-theme_override_font_sizes/mono_font_size = 16
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
 scroll_active = false
 shortcut_keys_enabled = false

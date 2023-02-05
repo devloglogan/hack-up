@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://yeu6asv1waho"]
 
-[ext_resource type="PackedScene" path="res://Menu/window_base.tscn" id="1_3qbfq"]
+[ext_resource type="PackedScene" uid="uid://b4emb8oumgcje" path="res://Menu/window_base.tscn" id="1_3qbfq"]
 [ext_resource type="Script" path="res://Terminal/terminal_window.gd" id="1_mxwxs"]
 
 [node name="TerminalWindow" instance=ExtResource("1_3qbfq")]
@@ -10,6 +10,11 @@ script = ExtResource("1_mxwxs")
 text = "zoid@TERMINAL-D7FG92:~"
 
 [node name="Text" parent="." index="2"]
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
 text = "int UPNPDevice::add_port_mapping(int port, int port_internal, String desc, String proto, int duration) const {
 	if (port_internal < 1) {
 		port_internal = port;

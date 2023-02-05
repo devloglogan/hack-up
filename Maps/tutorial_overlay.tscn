@@ -13,6 +13,8 @@ offset_bottom = 84.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("1_iljuu")
 theme_override_fonts/bold_font = ExtResource("2_tdyd5")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
 text = "[center]Press [b][SPACE][/b] to start hacking the [b]ROOT NODE[/b]
 Then type [b][ANY KEY][/b] to write an [b]INFILTRATION PROGRAM[/b] with your mad hacker skillz![/center]"
