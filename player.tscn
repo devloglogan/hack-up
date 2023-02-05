@@ -305,4 +305,6 @@ libraries = {
 "": SubResource("AnimationLibrary_r2jp1")
 }
 
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+
 [editable path="PlayerVisual"]

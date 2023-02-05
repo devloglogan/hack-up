@@ -1,7 +1,7 @@
 extends Control
 
 const SECURITY_MAX := 20
-const KeystrokeSound = preload("res://Sound/keystroke_sound.tscn")
+const KeystrokeSound = preload("res://Sound/keystroke/keystroke_sound.tscn")
 
 @onready var text_node = $Text
 

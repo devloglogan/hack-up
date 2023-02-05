@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b42rg8bwghevo"]
+[gd_scene load_steps=10 format=3 uid="uid://b42rg8bwghevo"]
 
 [ext_resource type="Script" path="res://Objects/computer_node.gd" id="1_bgcx1"]
 [ext_resource type="PackedScene" uid="uid://crjs06gvk5cr3" path="res://Assets/glb/sphere.glb" id="2_hv151"]
+[ext_resource type="AudioStream" uid="uid://dec1cj7cnbw2m" path="res://Sound/GGJ_success_v1.ogg" id="3_a274t"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sku7l"]
 
@@ -149,5 +150,8 @@ shape = SubResource("SphereShape3D_sku7l")
 [node name="Sphere" parent="Sphere" index="0"]
 mesh = SubResource("ArrayMesh_c50ax")
 surface_material_override/1 = SubResource("ShaderMaterial_ipshe")
+
+[node name="HackSuccessSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a274t")
 
 [editable path="Sphere"]

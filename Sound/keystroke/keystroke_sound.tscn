@@ -1,0 +1,14 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy3n03sxqu7mn"]
+
+[ext_resource type="AudioStream" uid="uid://bt3s57g5oyba4" path="res://Sound/keystroke/GGJ_keystroke_01_v1.ogg" id="1_wsfoy"]
+[ext_resource type="Script" path="res://Sound/keystroke/keystroke_sound.gd" id="2_mrnxr"]
+[ext_resource type="AudioStream" uid="uid://48km7c6ul3bq" path="res://Sound/keystroke/GGJ_keystroke_02_v2.ogg" id="3_4adxh"]
+[ext_resource type="AudioStream" uid="uid://wwp6ctsbsk3f" path="res://Sound/keystroke/GGJ_keystroke_03_v1.ogg" id="4_w8gyx"]
+[ext_resource type="AudioStream" uid="uid://riyi2oed78l3" path="res://Sound/keystroke/GGJ_keystroke_04_v1.ogg" id="5_3kp24"]
+
+[node name="KeystrokeSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_wsfoy")
+script = ExtResource("2_mrnxr")
+keystroke_sounds = Array[AudioStream]([ExtResource("1_wsfoy"), ExtResource("3_4adxh"), ExtResource("4_w8gyx"), ExtResource("5_3kp24")])
+
+[connection signal="finished" from="." to="." method="_on_finished"]
