@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dakoxjxcaudu1"]
+
+[ext_resource type="PackedScene" uid="uid://ca1sde7dwsfuu" path="res://Maps/network_map.tscn" id="1_88u4y"]
+[ext_resource type="Script" path="res://Maps/level_base.gd" id="1_rkbub"]
+[ext_resource type="PackedScene" uid="uid://bk31pnffmm0mp" path="res://Objects/root_computer_node.tscn" id="3_jsicm"]
+[ext_resource type="PackedScene" uid="uid://dnxoyix7jggw" path="res://Objects/zappy_computer_node.tscn" id="4_u17ln"]
+[ext_resource type="PackedScene" uid="uid://ro7ghldrvgdc" path="res://Maps/tutorial_overlay.tscn" id="5_727je"]
+
+[node name="Level3" type="Node3D"]
+script = ExtResource("1_rkbub")
+
+[node name="NetworkMap" parent="." instance=ExtResource("1_88u4y")]
+
+[node name="RootNode" parent="NetworkMap" instance=ExtResource("3_jsicm")]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0, -5.06088)
+
+[node name="BranchA" parent="NetworkMap" instance=ExtResource("4_u17ln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19528, 0, -1.61178)
+zap_on_start = true
+parent_connection_path = NodePath("../RootNode")
+
+[node name="BranchB" parent="NetworkMap" instance=ExtResource("4_u17ln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7261, 0, -0.0365404)
+parent_connection_path = NodePath("../RootNode")
+
+[node name="TutorialOverlay" parent="." instance=ExtResource("5_727je")]
+
+[node name="RichTextLabel" parent="TutorialOverlay" index="0"]
+text = "[center]Some nodes have [b]DEFENSES[/b]!
+Get hit [b]THREE TIMES[/b] and your attack is stopped[/center]"
+
+[editable path="TutorialOverlay"]

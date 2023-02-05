@@ -1,6 +1,8 @@
 extends "res://Objects/computer_node.gd"
 
 @export var barrier_sounds: Array[AudioStream]
+@export var zap_on_start := false
+@export var zap_cycle_time := 2.0
 
 @onready var zap_mesh_instance = $ZapMeshInstance
 @onready var zap_particles = $ZapParticles
@@ -10,6 +12,9 @@ var is_zapping := false
 
 func _ready():
 	hacked.connect(self._on_hacked)
+	$ZapTimer.wait_time = zap_cycle_time
+	if zap_on_start:
+		_on_zap_timer_timeout()
 
 func _physics_process(_delta):
 	if is_zapping:
@@ -24,7 +29,7 @@ func _on_zap_timer_timeout():
 	is_zapping = not is_zapping
 	zap_mesh_instance.visible = is_zapping
 	zap_particles.visible = is_zapping
-	
+
 	if is_zapping:
 		zap_barrier_sound.stream = barrier_sounds.pick_random()
 		zap_barrier_sound.play()

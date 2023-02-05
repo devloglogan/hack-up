@@ -2,12 +2,12 @@
 
 [ext_resource type="FontFile" uid="uid://copco060nbypq" path="res://Assets/fonts/Hack/ttf/Hack-Regular.ttf" id="1_ify35"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0m3s"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oxkh2"]
 
 [node name="Button" type="Button"]
 theme_override_colors/font_color = Color(0.74902, 0.545098, 0.313726, 1)
 theme_override_fonts/font = ExtResource("1_ify35")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxEmpty_o0m3s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oxkh2")
 text = "> Vector 1"
 alignment = 0
