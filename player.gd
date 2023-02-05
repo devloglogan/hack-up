@@ -6,6 +6,7 @@ const HURT_FRAMES := 10
 const MAX_HEALTH := 3
 
 @onready var hack_area: Area3D = $HackArea
+@onready var player_visual = $PlayerVisual
 
 var is_hurt := false
 var hurt_vector := Vector3.ZERO
@@ -42,12 +43,12 @@ func _physics_process(_delta):
 		var input_dir = Input.get_vector("player_left", "player_right", "player_forward", "player_back")
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction:
-			velocity.x = direction.x * SPEED
-			velocity.z = direction.z * SPEED
+			velocity = velocity.lerp(direction * SPEED, .1)
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			velocity.z = move_toward(velocity.z, 0, SPEED)
+			velocity = velocity.lerp(Vector3.ZERO, .1)
 
+	player_visual.rotation.z = velocity.x * -.05
+	player_visual.rotation.x = deg_to_rad(-21) + velocity.z * .05
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:

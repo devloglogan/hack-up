@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://p1tkbocpb2yp"]
+
+[ext_resource type="AudioStream" uid="uid://bt3s57g5oyba4" path="res://Sound/GGJ_keystroke_01_v1.ogg" id="1_y00h4"]
+[ext_resource type="Script" path="res://Sound/keystroke_sound.gd" id="2_bosf1"]
+
+[node name="KeystrokeSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_y00h4")
+script = ExtResource("2_bosf1")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
