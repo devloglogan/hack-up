@@ -24,9 +24,12 @@ func load_level(path):
 	level.root_node_hacked.connect(self._on_root_node_hacked)
 
 func _on_player_hack_activated(node):
-	if not node_being_hacked and not node.is_hacked and node.check_hackable():
-		node_being_hacked = node
-		terminal_window.activate_terminal(node_being_hacked.security_remaining)
+	if not node_being_hacked:
+		if not node.is_hacked and node.check_hackable():
+			node_being_hacked = node
+			terminal_window.activate_terminal(node_being_hacked.security_remaining)
+		else:
+			$Player.hack_failed()
 
 func _on_player_player_moved():
 	if node_being_hacked:

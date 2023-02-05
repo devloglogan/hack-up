@@ -55,3 +55,7 @@ func hurt(attacker, push_back_vector: Vector3 = Vector3.ZERO):
 	hurt_vector.y = 0.0
 	hurt_count = HURT_FRAMES
 	player_moved.emit()
+	$AnimationPlayer.play("Hurt")
+
+func hack_failed():
+	$AnimationPlayer.play("HackFailed")
