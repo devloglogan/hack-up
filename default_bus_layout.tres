@@ -1,10 +1,15 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://bx4cuyda56or2"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bx4cuyda56or2"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_hpw6f"]
 resource_name = "Reverb"
 room_size = 0.5
 hipass = 0.1
 wet = 0.1
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_1lnte"]
+resource_name = "Compressor"
+threshold = -14.0
+release_ms = 120.0
 
 [resource]
 bus/1/name = &"Node"
@@ -15,3 +20,11 @@ bus/1/volume_db = 0.0
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectReverb_hpw6f")
 bus/1/effect/0/enabled = true
+bus/2/name = &"Projectile"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectCompressor_1lnte")
+bus/2/effect/0/enabled = true
