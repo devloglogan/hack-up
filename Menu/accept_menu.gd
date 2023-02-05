@@ -2,10 +2,20 @@ extends "res://Menu/window_base.gd"
 
 const MyMenuButton = preload("menu_button.tscn")
 
+var key_sounds: Array[AudioStream]
+
 @onready var button_container = $ButtonContainer
+@onready var text_sound = $TextSound
+@onready var keystroke_sound = $KeystrokeSound
 
 signal ok_pressed ()
 signal cancel_pressed ()
+
+func _ready():
+	key_sounds.append(preload("res://Sound/keystroke/GGJ_keystroke_01_v1.ogg"))
+	key_sounds.append(preload("res://Sound/keystroke/GGJ_keystroke_02_v2.ogg"))
+	key_sounds.append(preload("res://Sound/keystroke/GGJ_keystroke_03_v1.ogg"))
+	key_sounds.append(preload("res://Sound/keystroke/GGJ_keystroke_04_v1.ogg"))
 
 func show_accept_menu(message, ok_text, cancel_text):
 	for child in button_container.get_children():
@@ -41,3 +51,12 @@ func _on_ok_pressed():
 func _on_cancel_pressed():
 	visible = false
 	cancel_pressed.emit()
+
+func _physics_process(delta):
+	if $AnimationPlayer.current_animation == "Start" and not text_sound.playing:
+		text_sound.stream = key_sounds.pick_random()
+		text_sound.play()
+
+func _on_focus_entered():
+	keystroke_sound.pitch_scale = randf_range(.9, 1.1)
+	keystroke_sound.play()
