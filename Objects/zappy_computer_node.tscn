@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://b42rg8bwghevo" path="res://Objects/computer_node.tscn" id="1_l8m7i"]
 [ext_resource type="Script" path="res://Objects/zappy_computer_node.gd" id="2_4wsnf"]
+[ext_resource type="AudioStream" uid="uid://1jeynmgvxige" path="res://Sound/barrier/GGJ_node_firewall_01_v4.wav" id="3_b1sye"]
 [ext_resource type="ArrayMesh" uid="uid://c5kjksexukd37" path="res://Assets/meshes/bolt_mesh.tres" id="3_mhha5"]
-[ext_resource type="AudioStream" uid="uid://bxkc3k0spwlix" path="res://Sound/barrier/GGJ_node_firewall_01_v3.wav" id="3_n7fpl"]
-[ext_resource type="AudioStream" uid="uid://cgund8h6tqckd" path="res://Sound/barrier/GGJ_node_firewall_02_v3.wav" id="4_heif3"]
-[ext_resource type="AudioStream" uid="uid://fkfhtbsj02yu" path="res://Sound/barrier/GGJ_node_firewall_03_v3.wav" id="5_4iccm"]
-[ext_resource type="AudioStream" uid="uid://bqrej8pbdmwg3" path="res://Sound/barrier/GGJ_node_firewall_04_v3.wav" id="6_rlcnh"]
-[ext_resource type="AudioStream" uid="uid://bt6dt861a5q13" path="res://Sound/barrier/GGJ_node_firewall_05_v3.wav" id="7_o63td"]
-[ext_resource type="AudioStream" uid="uid://bgq3rgc5ch6is" path="res://Sound/barrier/GGJ_node_firewall_06_v3.wav" id="8_6kdjy"]
+[ext_resource type="AudioStream" uid="uid://brw6t30jql2bc" path="res://Sound/barrier/GGJ_node_firewall_02_v4.wav" id="4_hc0hv"]
+[ext_resource type="AudioStream" uid="uid://csx4mdrxc4pnt" path="res://Sound/barrier/GGJ_node_firewall_03_v4.wav" id="5_52bax"]
+[ext_resource type="AudioStream" uid="uid://dfkag8lc1qnh1" path="res://Sound/barrier/GGJ_node_firewall_04_v4.wav" id="6_1ielb"]
+[ext_resource type="AudioStream" uid="uid://1l6c2yvsntxc" path="res://Sound/barrier/GGJ_node_firewall_05_v4.wav" id="7_6uw8r"]
+[ext_resource type="AudioStream" uid="uid://cd81wwegxuxya" path="res://Sound/barrier/GGJ_node_firewall_06_v4.wav" id="8_qdftj"]
 
 [sub_resource type="Shader" id="Shader_dmdt8"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.0.beta17's StandardMaterial3D.
@@ -123,7 +123,7 @@ angle_max = 34.0
 
 [node name="ZappyComputerNode" instance=ExtResource("1_l8m7i")]
 script = ExtResource("2_4wsnf")
-barrier_sounds = Array[AudioStream]([ExtResource("3_n7fpl"), ExtResource("4_heif3"), ExtResource("5_4iccm"), ExtResource("6_rlcnh"), ExtResource("7_o63td"), ExtResource("8_6kdjy")])
+barrier_sounds = Array[AudioStream]([ExtResource("3_b1sye"), ExtResource("4_hc0hv"), ExtResource("5_52bax"), ExtResource("6_1ielb"), ExtResource("7_6uw8r"), ExtResource("8_qdftj")])
 zap_on_start = false
 zap_cycle_time = 2.0
 
@@ -154,8 +154,7 @@ process_material = SubResource("ParticleProcessMaterial_v7ho6")
 draw_pass_1 = ExtResource("3_mhha5")
 
 [node name="ZapBarrierSound" type="AudioStreamPlayer3D" parent="." index="7"]
-attenuation_model = 2
-volume_db = -16.0
+volume_db = -18.0
 pitch_scale = 0.87
 bus = &"Node"
 
