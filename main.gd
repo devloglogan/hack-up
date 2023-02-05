@@ -65,6 +65,7 @@ func unload_level():
 	player.reset_player()
 	player.global_position = player_start_position
 	%HealthLabel.text = str(player.health)
+	snap_camera()
 
 func snap_camera():
 	camera_3d.make_current()
