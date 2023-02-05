@@ -3,6 +3,8 @@ extends "res://Menu/window_base.gd"
 const SECURITY_MAX := 20
 const KeystrokeSound = preload("res://Sound/keystroke/keystroke_sound.tscn")
 
+@onready var keystroke_timer = $KeystrokeTimer
+
 var _security_remaining := 20
 var security_remaining: int:
 	set(v):
@@ -37,8 +39,12 @@ func _unhandled_key_input(_event):
 	if security_remaining > 0:
 		security_remaining -= 1
 		security_reduced.emit(security_remaining)
-		var keystroke_sound = KeystrokeSound.instantiate()
-		add_child(keystroke_sound)
+		
+		if not keystroke_timer.time_left > 0.0:
+			var keystroke_sound = KeystrokeSound.instantiate()
+			add_child(keystroke_sound)
+			keystroke_timer.start()
+		
 		if security_remaining == 0:
 			deactivate_terminal()
 			terminal_completed.emit()

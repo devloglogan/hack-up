@@ -2,7 +2,10 @@ extends "res://Menu/window_base.gd"
 
 const MyMenuButton = preload("menu_button.tscn")
 
+@export var text_sounds: Array[AudioStream]
+
 @onready var button_container = $ButtonContainer
+@onready var text_sound = $TextSound
 
 signal level_selected (path)
 
@@ -31,3 +34,8 @@ func _on_level_button_pressed(level_path):
 func _focus_first_button():
 	if button_container.get_child_count() > 0:
 		button_container.get_child(0).grab_focus()
+
+func _physics_process(delta):
+	if $AnimationPlayer.current_animation == "Start" and not text_sound.playing:
+		text_sound.stream = text_sounds.pick_random()
+		text_sound.play()

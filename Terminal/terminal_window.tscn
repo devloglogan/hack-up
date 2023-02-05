@@ -35,3 +35,7 @@ text = "int UPNPDevice::add_port_mapping(int port, int port_internal, String des
 	return UPNP::UPNP_RESULT_SUCCESS;
 }"
 scroll_following = true
+
+[node name="KeystrokeTimer" type="Timer" parent="." index="3"]
+wait_time = 0.05
+one_shot = true
