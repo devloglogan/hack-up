@@ -47,6 +47,7 @@ data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4.45512, 4)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -108,6 +109,7 @@ offset_right = -647.0
 offset_bottom = -308.0
 
 [node name="InterpolatedCamera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4.45512, 12)
 current = true
 script = ExtResource("6_n1s2c")

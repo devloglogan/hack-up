@@ -8,6 +8,8 @@ const LEVELS := [
 @onready var player_start_position: Vector3 = player.global_position
 @onready var terminal_window = %TerminalWindow
 @onready var level = $Level
+@onready var camera_3d = %Camera3D
+@onready var interpolated_camera_3d = %InterpolatedCamera3D
 
 var node_being_hacked
 var current_level_path
@@ -47,6 +49,7 @@ func load_level(path):
 	player.global_position = player_start_position
 	player.is_playing = true
 	%HealthLabel.text = str(player.health)
+	snap_camera()
 
 func unload_level():
 	if level:
@@ -57,6 +60,12 @@ func unload_level():
 	player.reset_player()
 	player.global_position = player_start_position
 	%HealthLabel.text = str(player.health)
+
+func snap_camera():
+	camera_3d.make_current()
+	await get_tree().process_frame
+	interpolated_camera_3d.global_position = camera_3d.global_position
+	interpolated_camera_3d.make_current()
 
 func _on_player_hack_activated(node):
 	if not node_being_hacked:
