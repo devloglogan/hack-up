@@ -23,6 +23,7 @@ func setup_level_menu(levels: Array):
 		button_container.add_child(level_button)
 		level_button.text = "> Vector %s" % level_number
 		level_button.pressed.connect(self._on_level_button_pressed.bind(level_path))
+		level_number += 1
 
 func _on_level_button_pressed(level_path):
 	level_selected.emit(level_path)

@@ -124,6 +124,8 @@ angle_max = 34.0
 [node name="ZappyComputerNode" instance=ExtResource("1_l8m7i")]
 script = ExtResource("2_4wsnf")
 barrier_sounds = Array[AudioStream]([ExtResource("3_n7fpl"), ExtResource("4_heif3"), ExtResource("5_4iccm"), ExtResource("6_rlcnh"), ExtResource("7_o63td"), ExtResource("8_6kdjy")])
+zap_on_start = false
+zap_cycle_time = 2.0
 
 [node name="Sphere" parent="Sphere" index="0"]
 surface_material_override/1 = SubResource("ShaderMaterial_h3jry")

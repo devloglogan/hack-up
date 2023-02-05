@@ -13,11 +13,13 @@ func show_accept_menu(message, ok_text, cancel_text):
 
 	$Text.text = message
 
-	var ok_button = _add_button(ok_text)
-	ok_button.pressed.connect(self._on_ok_pressed)
+	if ok_text != "":
+		var ok_button = _add_button(ok_text)
+		ok_button.pressed.connect(self._on_ok_pressed)
 
-	var cancel_button = _add_button(cancel_text)
-	cancel_button.pressed.connect(self._on_cancel_pressed)
+	if cancel_text != "":
+		var cancel_button = _add_button(cancel_text)
+		cancel_button.pressed.connect(self._on_cancel_pressed)
 
 	visible = true
 	$AnimationPlayer.play("Start")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ro7ghldrvgdc"]
+
+[ext_resource type="FontFile" uid="uid://copco060nbypq" path="res://Assets/fonts/Hack/ttf/Hack-Regular.ttf" id="1_iljuu"]
+[ext_resource type="FontFile" uid="uid://t7f6bdv56ke1" path="res://Assets/fonts/Hack/ttf/Hack-Bold.ttf" id="2_tdyd5"]
+
+[node name="TutorialOverlay" type="CanvasLayer"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 46.0
+offset_bottom = 84.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_iljuu")
+theme_override_fonts/bold_font = ExtResource("2_tdyd5")
+bbcode_enabled = true
+text = "[center]Press [b][SPACE][/b] to start hacking the [b]ROOT NODE[/b]
+Then type [b][ANY KEY][/b] to write an [b]INFILTRATION PROGRAM[/b] with your mad hacker skillz![/center]"
+fit_content = true

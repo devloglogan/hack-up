@@ -52,7 +52,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not is_playing:
+	if not is_playing or is_hurt:
 		return
 	if event.is_action_pressed("player_activate_terminal"):
 		get_viewport().set_input_as_handled()

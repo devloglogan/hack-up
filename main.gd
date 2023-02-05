@@ -2,6 +2,10 @@ extends Node
 
 const LEVELS := [
 	"res://Maps/Level1/level_1.tscn",
+	"res://Maps/Level2/level_2.tscn",
+	"res://Maps/Level3/level_3.tscn",
+	"res://Maps/Level4/level_4.tscn",
+	"res://Maps/Level5/level_5.tscn",
 ]
 
 @onready var player = $Player
@@ -52,7 +56,7 @@ func load_level(path):
 	snap_camera()
 
 func unload_level():
-	if level:
+	if level != null:
 		remove_child(level)
 		level.queue_free()
 		level = null
@@ -95,11 +99,16 @@ func _on_terminal_window_terminal_completed():
 
 func _on_root_node_hacked():
 	player.is_playing = false
-	%AcceptMenu.show_accept_menu("You hacked the root node!", "Advance to next vector", "Return to main menu")
+	var index = LEVELS.find(current_level_path)
+	index += 1
+	if index >= LEVELS.size():
+		%AcceptMenu.show_accept_menu("CONGRATULATIONS!\nYou have HACKED UP.\nAll their systems now belong to us.", "", "Return to main menu")
+	else:
+		%AcceptMenu.show_accept_menu("You hacked the root node!", "Advance to next vector", "Return to main menu")
 
 func _on_player_player_died():
 	player.is_playing = false
-	%AcceptMenu.show_accept_menu("Your feeble system intrusion was stopped by the networks defenses.", "Retry current attack vector", "Return to main menu")
+	%AcceptMenu.show_accept_menu("Your feeble system intrusion was stopped by the network's defenses.", "Retry current attack vector", "Return to main menu")
 
 func _on_accept_menu_ok_pressed():
 	if player.is_dead:
