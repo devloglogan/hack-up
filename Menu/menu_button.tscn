@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdbnltxf7wg1c"]
+[gd_scene load_steps=5 format=3 uid="uid://bdbnltxf7wg1c"]
 
 [ext_resource type="FontFile" uid="uid://copco060nbypq" path="res://Assets/fonts/Hack/ttf/Hack-Regular.ttf" id="1_ify35"]
+[ext_resource type="AudioStream" uid="uid://bt3s57g5oyba4" path="res://Sound/keystroke/GGJ_keystroke_01_v1.ogg" id="2_euwju"]
+[ext_resource type="Script" path="res://Menu/menu_button.gd" id="2_vtd80"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oxkh2"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybf48"]
 
 [node name="Button" type="Button"]
 theme_override_colors/font_color = Color(0.74902, 0.545098, 0.313726, 1)
 theme_override_fonts/font = ExtResource("1_ify35")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_oxkh2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ybf48")
 text = "> Vector 1"
 alignment = 0
+script = ExtResource("2_vtd80")
+
+[node name="KeystrokeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_euwju")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

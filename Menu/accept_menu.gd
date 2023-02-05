@@ -12,10 +12,10 @@ signal ok_pressed ()
 signal cancel_pressed ()
 
 func _ready():
-	key_sounds.append(preload("res://Sound/keystroke/GGJ_keystroke_01_v1.ogg"))
-	key_sounds.append(preload("res://Sound/keystroke/GGJ_keystroke_02_v2.ogg"))
-	key_sounds.append(preload("res://Sound/keystroke/GGJ_keystroke_03_v1.ogg"))
-	key_sounds.append(preload("res://Sound/keystroke/GGJ_keystroke_04_v1.ogg"))
+	key_sounds.append(preload("res://Sound/text/v2/GGJ_text_01_v2.wav"))
+	key_sounds.append(preload("res://Sound/text/v2/GGJ_text_04_v2.wav"))
+	key_sounds.append(preload("res://Sound/text/v2/GGJ_text_05_v2.wav"))
+	key_sounds.append(preload("res://Sound/text/v2/GGJ_text_06_v2.wav"))
 
 func show_accept_menu(message, ok_text, cancel_text):
 	for child in button_container.get_children():
@@ -56,7 +56,3 @@ func _physics_process(delta):
 	if $AnimationPlayer.current_animation == "Start" and not text_sound.playing:
 		text_sound.stream = key_sounds.pick_random()
 		text_sound.play()
-
-func _on_focus_entered():
-	keystroke_sound.pitch_scale = randf_range(.9, 1.1)
-	keystroke_sound.play()

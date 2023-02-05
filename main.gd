@@ -6,7 +6,7 @@ const LEVELS := [
 	"res://Maps/Level3/level_3.tscn",
 	"res://Maps/Level4/level_4.tscn",
 	"res://Maps/Level5/level_5.tscn",
-	"res://Maps/BoseLevel/boss_level.tscn",
+	"res://Maps/BossLevel/boss_level.tscn",
 ]
 
 @onready var player = $Player

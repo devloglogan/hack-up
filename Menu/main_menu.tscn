@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Menu/main_menu.gd" id="1_81nn2"]
 [ext_resource type="PackedScene" uid="uid://b4emb8oumgcje" path="res://Menu/window_base.tscn" id="1_jyo1a"]
-[ext_resource type="AudioStream" uid="uid://db7ex3wf4h5rk" path="res://Sound/text/GGJ_text_01.wav" id="3_r8k27"]
+[ext_resource type="AudioStream" uid="uid://cub6qdehiy1kt" path="res://Sound/text/v2/GGJ_text_01_v2.wav" id="3_h7sfg"]
 [ext_resource type="AudioStream" uid="uid://bt3s57g5oyba4" path="res://Sound/keystroke/GGJ_keystroke_01_v1.ogg" id="4_iqjat"]
-[ext_resource type="AudioStream" uid="uid://carlrjq308t3c" path="res://Sound/text/GGJ_text_02.wav" id="4_q5s8x"]
-[ext_resource type="AudioStream" uid="uid://davkx2sljoumf" path="res://Sound/text/GGJ_text_03.wav" id="5_rxoxs"]
-[ext_resource type="AudioStream" uid="uid://ksm1t6s8y1xk" path="res://Sound/text/GGJ_text_04.wav" id="6_pwxw1"]
+[ext_resource type="AudioStream" uid="uid://wag1a7ccei2h" path="res://Sound/text/v2/GGJ_text_04_v2.wav" id="4_p4382"]
+[ext_resource type="AudioStream" uid="uid://brg61nef4454u" path="res://Sound/text/v2/GGJ_text_05_v2.wav" id="5_am3mo"]
+[ext_resource type="AudioStream" uid="uid://qemuys202u60" path="res://Sound/text/v2/GGJ_text_06_v2.wav" id="6_hmk0r"]
 [ext_resource type="PackedScene" uid="uid://bdbnltxf7wg1c" path="res://Menu/menu_button.tscn" id="7_fbvgc"]
 
 [sub_resource type="Animation" id="Animation_c2mcm"]
@@ -86,7 +86,7 @@ _data = {
 
 [node name="MainMenu" instance=ExtResource("1_jyo1a")]
 script = ExtResource("1_81nn2")
-text_sounds = Array[AudioStream]([ExtResource("3_r8k27"), ExtResource("4_q5s8x"), ExtResource("5_rxoxs"), ExtResource("6_pwxw1")])
+text_sounds = Array[AudioStream]([ExtResource("3_h7sfg"), ExtResource("4_p4382"), ExtResource("5_am3mo"), ExtResource("6_hmk0r")])
 
 [node name="WindowTitle" parent="." index="1"]
 text = "HACK UP!"
@@ -118,7 +118,4 @@ libraries = {
 }
 
 [node name="TextSound" type="AudioStreamPlayer" parent="." index="5"]
-stream = ExtResource("4_iqjat")
-
-[node name="KeystrokeSound" type="AudioStreamPlayer" parent="." index="6"]
 stream = ExtResource("4_iqjat")
