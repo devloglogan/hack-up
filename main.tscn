@@ -1,13 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bb4nnlh70plvw"]
+[gd_scene load_steps=14 format=3 uid="uid://ctsfcsdwpx2ur"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7vku1"]
 [ext_resource type="MeshLibrary" uid="uid://du4gvmkkq5o3h" path="res://tile_map.tres" id="1_kwjf5"]
 [ext_resource type="PackedScene" uid="uid://bjrrixu8hfsmf" path="res://player.tscn" id="2_jmdnv"]
-[ext_resource type="PackedScene" uid="uid://d24872ur26jko" path="res://Terminal/terminal_window.tscn" id="4_bi2n5"]
+[ext_resource type="PackedScene" uid="uid://yeu6asv1waho" path="res://Terminal/terminal_window.tscn" id="4_bi2n5"]
 [ext_resource type="PackedScene" uid="uid://cx3l3evojfr88" path="res://Menu/main_menu.tscn" id="6_4owxv"]
 [ext_resource type="LabelSettings" uid="uid://btd1mc7nwpydb" path="res://Assets/fonts/health_font.tres" id="6_5vcf0"]
 [ext_resource type="Script" path="res://addons/interpolated_camera_3d/interpolated_camera_3d.gd" id="6_n1s2c"]
-[ext_resource type="PackedScene" uid="uid://brx20fob4pb2c" path="res://Menu/accept_menu.tscn" id="7_2eeuk"]
+[ext_resource type="PackedScene" uid="uid://be86o5yyr2q2v" path="res://Menu/accept_menu.tscn" id="7_l0dbe"]
 [ext_resource type="PackedScene" uid="uid://bk31pnffmm0mp" path="res://Objects/root_computer_node.tscn" id="7_mv12h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ptv1a"]
@@ -100,13 +100,13 @@ offset_top = -248.0
 offset_right = -327.0
 offset_bottom = -248.0
 
-[node name="AcceptMenu" parent="OverlayLayer" instance=ExtResource("7_2eeuk")]
+[node name="AcceptMenu" parent="OverlayLayer" instance=ExtResource("7_l0dbe")]
 unique_name_in_owner = true
 visible = false
 offset_left = 633.0
 offset_top = 292.0
-offset_right = -647.0
-offset_bottom = -308.0
+offset_right = -1287.0
+offset_bottom = -788.0
 
 [node name="InterpolatedCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true

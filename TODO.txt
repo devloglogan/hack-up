@@ -4,6 +4,7 @@ TODO
 Required:
 
  * A series of tutorial levels to build things up
+ * Increase font size in terminal
 
 Optional:
 

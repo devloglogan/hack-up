@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://Menu/window_base.gd" id="1_85xyh"]
+[ext_resource type="PackedScene" uid="uid://bkdn76ixdu7nx" path="res://Terminal/window_texture.tscn" id="2_m0dbq"]
+[ext_resource type="FontFile" uid="uid://t7f6bdv56ke1" path="res://Assets/fonts/Hack/ttf/Hack-Bold.ttf" id="3_q7f8g"]
+[ext_resource type="FontFile" uid="uid://copco060nbypq" path="res://Assets/fonts/Hack/ttf/Hack-Regular.ttf" id="4_hd13c"]
+[ext_resource type="FontFile" uid="uid://diixkdf5r32r7" path="res://Assets/fonts/Hack/ttf/Hack-Italic.ttf" id="5_u6ste"]
+[ext_resource type="FontFile" uid="uid://br601pghda3aw" path="res://Assets/fonts/Hack/ttf/Hack-BoldItalic.ttf" id="6_vdqlh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fi4e5"]
+font = ExtResource("3_q7f8g")
+
+[node name="WindowBase" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_85xyh")
+
+[node name="TextureRect" parent="." instance=ExtResource("2_m0dbq")]
+layout_mode = 0
+
+[node name="WindowTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 4.0
+offset_right = 163.0
+offset_bottom = 26.0
+text = "WINDOW TITLE"
+label_settings = SubResource("LabelSettings_fi4e5")
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 30.0
+offset_right = 632.0
+offset_bottom = 474.0
+theme_override_colors/default_color = Color(0.74902, 0.545098, 0.313726, 1)
+theme_override_fonts/normal_font = ExtResource("4_hd13c")
+theme_override_fonts/bold_font = ExtResource("3_q7f8g")
+theme_override_fonts/italics_font = ExtResource("5_u6ste")
+theme_override_fonts/bold_italics_font = ExtResource("6_vdqlh")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+scroll_active = false
+shortcut_keys_enabled = false

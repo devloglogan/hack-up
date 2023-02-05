@@ -1,16 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://brx20fob4pb2c"]
+[gd_scene load_steps=7 format=3 uid="uid://be86o5yyr2q2v"]
 
+[ext_resource type="PackedScene" path="res://Menu/window_base.tscn" id="1_gg726"]
 [ext_resource type="Script" path="res://Menu/accept_menu.gd" id="1_jr0ht"]
-[ext_resource type="PackedScene" uid="uid://bkdn76ixdu7nx" path="res://Terminal/window_texture.tscn" id="2_8m0ls"]
-[ext_resource type="FontFile" uid="uid://t7f6bdv56ke1" path="res://Assets/fonts/Hack/ttf/Hack-Bold.ttf" id="3_aytul"]
-[ext_resource type="FontFile" uid="uid://copco060nbypq" path="res://Assets/fonts/Hack/ttf/Hack-Regular.ttf" id="4_xin3q"]
-[ext_resource type="FontFile" uid="uid://diixkdf5r32r7" path="res://Assets/fonts/Hack/ttf/Hack-Italic.ttf" id="5_c6ysa"]
-[ext_resource type="FontFile" uid="uid://br601pghda3aw" path="res://Assets/fonts/Hack/ttf/Hack-BoldItalic.ttf" id="6_xc7tk"]
 [ext_resource type="PackedScene" uid="uid://bdbnltxf7wg1c" path="res://Menu/menu_button.tscn" id="7_kt7pf"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_3pd8o"]
-font = ExtResource("3_aytul")
-font_size = 10
 
 [sub_resource type="Animation" id="Animation_c2mcm"]
 length = 0.001
@@ -87,60 +79,26 @@ _data = {
 "Start": SubResource("Animation_j38nl")
 }
 
-[node name="AcceptMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1280.0
-offset_bottom = -600.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="AcceptMenu" instance=ExtResource("1_gg726")]
 script = ExtResource("1_jr0ht")
 
-[node name="TextureRect" parent="." instance=ExtResource("2_8m0ls")]
-layout_mode = 0
-
-[node name="WindowTitle" type="Label" parent="."]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 2.0
-offset_right = 153.0
-offset_bottom = 23.0
+[node name="WindowTitle" parent="." index="1"]
 text = "HACK UP!"
-label_settings = SubResource("LabelSettings_3pd8o")
 
-[node name="Text" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 19.0
-offset_right = 632.0
-offset_bottom = 474.0
-theme_override_colors/default_color = Color(0.74902, 0.545098, 0.313726, 1)
-theme_override_fonts/normal_font = ExtResource("4_xin3q")
-theme_override_fonts/bold_font = ExtResource("3_aytul")
-theme_override_fonts/italics_font = ExtResource("5_c6ysa")
-theme_override_fonts/bold_italics_font = ExtResource("6_xc7tk")
-theme_override_font_sizes/normal_font_size = 10
-theme_override_font_sizes/bold_font_size = 10
-theme_override_font_sizes/italics_font_size = 10
-theme_override_font_sizes/bold_italics_font_size = 10
-theme_override_font_sizes/mono_font_size = 10
+[node name="Text" parent="." index="2"]
 text = "Sorry, you dead!"
-scroll_active = false
-shortcut_keys_enabled = false
 
-[node name="ButtonContainer" type="VBoxContainer" parent="."]
+[node name="ButtonContainer" type="VBoxContainer" parent="." index="3"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 75.0
-offset_right = 457.0
-offset_bottom = 218.0
+offset_left = 9.0
+offset_top = 108.0
+offset_right = 447.0
+offset_bottom = 465.0
 
-[node name="Button" parent="ButtonContainer" instance=ExtResource("7_kt7pf")]
+[node name="Button" parent="ButtonContainer" index="0" instance=ExtResource("7_kt7pf")]
 layout_mode = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 libraries = {
 "": SubResource("AnimationLibrary_5owiy")
 }

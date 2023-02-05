@@ -1,9 +1,7 @@
-extends Control
+extends "res://Menu/window_base.gd"
 
 const SECURITY_MAX := 20
 const KeystrokeSound = preload("res://Sound/keystroke/keystroke_sound.tscn")
-
-@onready var text_node = $Text
 
 var _security_remaining := 20
 var security_remaining: int:
@@ -35,7 +33,7 @@ func deactivate_terminal() -> void:
 
 func _unhandled_key_input(_event):
 	if not visible: return
-	
+
 	if security_remaining > 0:
 		security_remaining -= 1
 		security_reduced.emit(security_remaining)

@@ -1,4 +1,4 @@
-extends Control
+extends "res://Menu/window_base.gd"
 
 const MyMenuButton = preload("menu_button.tscn")
 
