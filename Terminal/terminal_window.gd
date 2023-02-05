@@ -1,6 +1,7 @@
 extends Control
 
 const SECURITY_MAX := 20
+const KeystrokeSound = preload("res://Sound/keystroke_sound.tscn")
 
 @onready var text_node = $Text
 
@@ -33,9 +34,13 @@ func deactivate_terminal() -> void:
 	visible = false
 
 func _unhandled_key_input(_event):
+	if not visible: return
+	
 	if security_remaining > 0:
 		security_remaining -= 1
 		security_reduced.emit(security_remaining)
+		var keystroke_sound = KeystrokeSound.instantiate()
+		add_child(keystroke_sound)
 		if security_remaining == 0:
 			deactivate_terminal()
 			terminal_completed.emit()
