@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb4nnlh70plvw"]
+[gd_scene load_steps=11 format=3 uid="uid://bb4nnlh70plvw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7vku1"]
 [ext_resource type="MeshLibrary" uid="uid://du4gvmkkq5o3h" path="res://tile_map.tres" id="1_kwjf5"]
 [ext_resource type="PackedScene" uid="uid://bjrrixu8hfsmf" path="res://player.tscn" id="2_jmdnv"]
 [ext_resource type="PackedScene" uid="uid://de8yxye8mso66" path="res://Maps/Level1/level_1.tscn" id="3_ie5b0"]
 [ext_resource type="PackedScene" uid="uid://d24872ur26jko" path="res://Terminal/terminal_window.tscn" id="4_bi2n5"]
+[ext_resource type="LabelSettings" uid="uid://btd1mc7nwpydb" path="res://Assets/fonts/health_font.tres" id="6_5vcf0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ptv1a"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -62,8 +63,31 @@ offset_top = 34.0
 offset_right = -36.0
 offset_bottom = -566.0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="OverlayLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -228.0
+offset_right = -8.0
+offset_bottom = 41.0
+grow_horizontal = 0
+
+[node name="LabelLabel" type="Label" parent="OverlayLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Health:"
+label_settings = ExtResource("6_5vcf0")
+
+[node name="HealthLabel" type="Label" parent="OverlayLayer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "3"
+label_settings = ExtResource("6_5vcf0")
+
 [connection signal="hack_activated" from="Player" to="." method="_on_player_hack_activated"]
 [connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
+[connection signal="player_hurt" from="Player" to="." method="_on_player_player_hurt"]
 [connection signal="player_moved" from="Player" to="." method="_on_player_player_moved"]
 [connection signal="security_reduced" from="OverlayLayer/TerminalWindow" to="." method="_on_terminal_window_security_reduced"]
 [connection signal="terminal_completed" from="OverlayLayer/TerminalWindow" to="." method="_on_terminal_window_terminal_completed"]

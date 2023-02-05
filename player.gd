@@ -16,6 +16,7 @@ var is_dead := false
 
 signal hack_activated(node)
 signal player_moved()
+signal player_hurt()
 signal player_died()
 
 func reset_player():
@@ -75,7 +76,7 @@ func hurt(attacker, push_back_vector: Vector3 = Vector3.ZERO):
 		hurt_vector = (global_position - attacker.global_position).normalized()
 	hurt_vector.y = 0.0
 	hurt_count = HURT_FRAMES
-	player_moved.emit()
+	player_hurt.emit()
 	$AnimationPlayer.play("Hurt")
 
 

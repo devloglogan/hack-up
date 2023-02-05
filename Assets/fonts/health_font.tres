@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://btd1mc7nwpydb"]
+
+[ext_resource type="FontFile" uid="uid://t7f6bdv56ke1" path="res://Assets/fonts/Hack/ttf/Hack-Bold.ttf" id="1_7elrk"]
+
+[resource]
+font = ExtResource("1_7elrk")
+font_size = 32

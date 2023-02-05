@@ -27,6 +27,7 @@ func load_level(path):
 
 	player.reset_player()
 	player.global_position = player_start_position
+	%HealthLabel.text = str(player.health)
 
 func _on_player_hack_activated(node):
 	if not node_being_hacked:
@@ -37,6 +38,12 @@ func _on_player_hack_activated(node):
 			$Player.hack_failed()
 
 func _on_player_player_moved():
+	if node_being_hacked:
+		terminal_window.deactivate_terminal()
+		node_being_hacked = null
+
+func _on_player_player_hurt():
+	%HealthLabel.text = str(player.health)
 	if node_being_hacked:
 		terminal_window.deactivate_terminal()
 		node_being_hacked = null
