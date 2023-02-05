@@ -6,17 +6,18 @@ const LEVELS := [
 	"res://Maps/Level3/level_3.tscn",
 	"res://Maps/Level4/level_4.tscn",
 	"res://Maps/Level5/level_5.tscn",
+	"res://Maps/BoseLevel/boss_level.tscn",
 ]
 
 @onready var player = $Player
 @onready var player_start_position: Vector3 = player.global_position
 @onready var terminal_window = %TerminalWindow
-@onready var level = $Level
 @onready var camera_3d = %Camera3D
 @onready var interpolated_camera_3d = %InterpolatedCamera3D
 
 var node_being_hacked
 var current_level_path
+var level
 
 func _ready():
 	await get_tree().create_timer(0.3).timeout
